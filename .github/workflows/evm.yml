@@ -1,23 +1,23 @@
-name: Solana Node RPC CI/CD
+name: EVM Node RPC CI/CD
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'solana/**'
+      - 'evm/**'
   pull_request:
     branches:
       - main
     paths:
-      - 'solana/**'
+      - 'evm/**'
 
 defaults:
   run:
-    working-directory: ./solana 
+    working-directory: ./evm 
 
 env:
-  IMAGE_NAME: sol_net
+  IMAGE_NAME: eth_net
 
 jobs:
 
@@ -44,7 +44,7 @@ jobs:
         - name: Build and push
           uses: docker/build-push-action@v6
           with:
-            context: ./solana
+            context: ./evm
             push: true
             tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           
