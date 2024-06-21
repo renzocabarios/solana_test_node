@@ -19,3 +19,5 @@ EXPOSE 1024
 EXPOSE 8900
 
 CMD ["solana-test-validator"]
+
+# TEST
